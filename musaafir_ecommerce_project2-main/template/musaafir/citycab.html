@@ -1,0 +1,201 @@
+{% extends 'musaafir/main.html' %}
+{% load static %}
+{% block content %}
+
+<html>
+<!https://jsfiddle.net/AllDotnetQueries/xj5tefzj/1/>
+<!https://www.geeksforgeeks.org/how-to-set-bootstrap-timepicker-using-datetimepicker-library/>
+<head>
+
+    <title>DateTimepicker</title>
+ 
+    <!-- Include Bootstrap CDN -->
+    <link href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        rel="stylesheet">
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js">
+    </script>
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+    </script>
+ 
+    <!-- Include Moment.js CDN -->
+    <script type="text/javascript" src=
+"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">
+    </script>
+ 
+    <!-- Include Bootstrap DateTimePicker CDN -->
+    <link
+        href=
+"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+        rel="stylesheet">
+ 
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
+        </script>
+
+</head>
+
+<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/grid/">
+
+    
+
+<!-- Bootstrap core CSS -->
+<link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+
+<!-- Custom styles for this template -->
+<link href="grid.css" rel="stylesheet">
+</head>
+<body class="py-4">
+
+<style>
+
+
+    .box-element{
+        box-shadow:hsla(0, 0%, 80%, 0.856) 0 0 16px;
+        background-color: #e4136df5(235, 50, 112);
+        border-radius: 5px;
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <form action="{% url 'citycab' %}"  method="GET" class="d-flex">
+
+    <hr class="my-4">
+
+      <div class="col themed-grid-col">  
+        <div class="form-floating">
+        <label for="floatingInputGrid">Travel Option</label>
+        <select name="car_option" id="car_option" class="form-control"  style="height: 35px;">
+            <option value="---">Select trip type...</option>
+            <option value="CITY COMMUTE">CITY COMMUTE</option>
+            <option value="OUTSTATION">OUTSTATION</option>
+            <option value="RENTAL">RENTAL</option>
+          </select>          
+        </div>
+    </div>
+
+      <div class="col themed-grid-col">
+
+                <div class="form-floating">
+                  <label for="floatingInputGrid"> Pickup City</label>
+                  <select name="city" id="city" class="form-control" style="height: 30px;">
+                    <option value="---">Select city name...</option>
+                    <option value="Navi Mumbai">Navi Mumbai</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Pune">Pune</option>
+                  </select>
+                </div>
+
+      </div>
+      <div class="col themed-grid-col">
+        <div class="form-floating">
+            <label for="floatingInputGrid">Number of Passengers</label>
+            <select name="passengers" id="passengers" class="form-control"  style="height: 35px;">
+                <option value="---">Select number of passengers...</option>
+                <option value="1-4">1-4</option>
+                <option value="4-7">4-7</option>
+                <option value="7-16">7-16</option>
+              </select>          
+            </div>  
+
+      </div>
+
+      <div class="col themed-grid-col">
+          <br>
+        <div class="form-floating">
+      <button class="btn btn-primary btn" name="submit" type="submit">Proceed</button>
+      </div>
+    </div>
+    </form>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for cab in cabs  %}
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img  src="{{cab.imageurl}}" class="bd-placeholder-img card-img-top" width="100%" height="225" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+
+                <div class="btn-group">
+                    <a href="/cab_view/{{cab.name}}/{{cab.id}}/{{cab.car_option}}" class="btn btn-primary"><strong>{{cab.name}}</strong><style="display: inline-block; float: right"> <i> Rs.{{cab.price|floatformat:2}}/km </i></style> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+   
+        {% endfor %}
+    
+
+        <hr>
+   
+
+   
+   <!-- Script -->
+   <script>
+ 
+        // Below code sets format to the
+        // datetimepicker having id as
+        // datetime
+        $('#datetime').datetimepicker({
+            format: 'YYYY-MM-DD hh:mm A'
+        });
+
+        $('#datetime2').datetimepicker({
+            format: 'YYYY-MM-DD HH:MM A'
+        });
+    </script>
+   
+
+
+</body>
+
+</html>
+
+
+{% endblock content %}

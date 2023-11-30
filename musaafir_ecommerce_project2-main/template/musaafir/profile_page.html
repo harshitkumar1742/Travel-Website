@@ -1,0 +1,54 @@
+{% extends 'musaafir/main.html' %}
+{% load static %}
+{% block content %}
+
+
+<br>
+  <br>
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold text-center">Welcome, {{name}}!</h1>
+        
+      </div>
+    </div>
+    <br>
+
+
+<div class="container">
+              
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Cab</th>
+          <th>Pickup</th>
+          <th>Destination</th>
+          <th>Date and Time</th>
+          <th>Price</th>
+          <th> Cancel </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for cab in cab_bookings %}
+
+        <tr>
+          <td>{{cab.cabname}}</td>
+          <td>{{cab.pickup}}
+          <td>{{cab.destination}}</td>
+          <td>{{cab.pickup_datetime}}</td>
+          <td>Rs. {{cab.price}}</td>
+          <th> {% if cab.can_cancel == True %}
+              <a class = "btn btn-sm btn-danger" href={% url 'cancel' cab.cabname.id cab.pickup_datetime %}> Cancel </a>
+              {% else %} 
+              <p>Ride complete! <span><a href="{% url 'cab_view' cab.cabname cab.cabname.id cab.cabname.car_option%}">Give review here</a></span></p>
+          
+          {% endif %}
+        </th>
+        </tr>
+        <tr>
+    {% endfor %}
+      </body>
+    </table>
+  </div>
+
+  {% endblock content %}

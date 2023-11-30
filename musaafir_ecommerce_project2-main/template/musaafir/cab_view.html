@@ -1,0 +1,244 @@
+{% extends 'musaafir/main.html' %}
+{% load static %}
+{% block content %}
+
+<!https://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/>
+<html>
+<!https://jsfiddle.net/AllDotnetQueries/xj5tefzj/1/>
+<!https://www.geeksforgeeks.org/how-to-set-bootstrap-timepicker-using-datetimepicker-library/>
+<head>
+
+    <title>DateTimepicker</title>
+ 
+    <!-- Include Bootstrap CDN -->
+    <link href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        rel="stylesheet">
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js">
+    </script>
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+    </script>
+ 
+    <!-- Include Moment.js CDN -->
+    <script type="text/javascript" src=
+"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">
+    </script>
+ 
+    <!-- Include Bootstrap DateTimePicker CDN -->
+    <link
+        href=
+"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+        rel="stylesheet">
+ 
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
+        </script>
+
+</head>
+<style>
+
+    div.stars {
+        width: 270px;
+        display: inline-block;
+      }
+      
+      input.star { display: none; }
+      
+      label.star {
+        float: right;
+        padding: 10px;
+        font-size: 36px;
+        color: #444;
+        transition: all .2s;
+      }
+      
+      input.star:checked ~ label.star:before {
+        content: '\f005';
+        color: #FD4;
+        transition: all .25s;
+      }
+      
+      input.star-5:checked ~ label.star:before {
+        color: #FE7;
+        text-shadow: 0 0 20px #952;
+      }
+      
+      input.star-1:checked ~ label.star:before { color: #F62; }
+      
+      label.star:hover { transform: rotate(-15deg) scale(1.3); }
+      
+      label.star:before {
+        content: '\f006';
+        font-family: FontAwesome;
+      }
+
+    </style>
+
+ 
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <img src="{{product.imageurl}}" style="width:100%; height:100%;">
+  
+        </div>
+      </div>
+      <div class="col-md-6"  style="background-color:#f7b8a3;">
+        <div class="h-100 p-5 rounded-3">
+
+
+          <p><h3> {{product.name}}, <strong> <i> Rs.{{product.price}}/km </i></strong> </h3></p>
+<br>
+<form action="{% url 'citycab_booking' product.name product.id %}" method="GET" class="d-flex">
+
+  <div class="col-md-10">
+            <div class="form-floating">
+              <label for="floatingInputGrid">Pickup location in {{product.pickup_city}}</label>
+              <input type="text"  name="pickup" class="form-control" id="floatingInputGrid" placeholder="Enter pickup location...">
+            </div>
+<br>
+{% if car_option == 'RENTAL' %}
+
+<div class="form-floating">
+    <label for="floatingInputGrid">Hourly Package (For Rentals Only)</label>
+    <select name="hourly_package" id="hourly_package" class="form-control"  style="height: 35px;">
+        <option value="---">Select hourly package...</option>
+        <option value="3">3 hours</option>
+        <option value="6">6 hours</option>
+        <option value="15">15 hours</option>
+      </select>          
+    </div>
+{% else %}
+<div class="form-floating">
+  <label for="floatingInputGrid">Destination</label>
+  <input type="text"  name="destination" class="form-control" id="floatingInputGrid" placeholder="Enter destination location...">
+</div>
+<hr>
+
+  {% endif %}
+
+  <br> 
+  <div class="container">
+  <div class="col-sm-8">
+      <div class="form-group">
+              <label for="floatingInputGrid" class="control-label">Select Pick Up Date and Time</label>
+          </div>
+          <div class="col-sm-5">
+              <div class="form-floating">
+              <div class="input-group date">
+              <input class="form-control" name="datetime"
+              type="text" id="datetime" />                                    
+                  <span class="input-group-addon">
+                      <span class="glyphicon-calendar glyphicon"></span>
+                  </span>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<br>
+
+
+{% if user.is_authenticated %}
+{% if cab.is_available == True %}
+<input type="submit" value="Book Ride" class="w-100 btn btn-primary btn-lg">
+</form>
+{% else %}
+<p> Cab unavailable at the moment.</span></p>
+{% endif %}
+{% else %}
+<p>You must be logged in to Book a Ride. <span><a href="{% url 'login' %}">Login now</a></span></p>
+{% endif %}
+
+</div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+ 
+  <br>
+  <div class="container-fluid py-5">
+
+  <div class="row">
+    <div class="col-md-9">
+
+
+        <form action="{% url 'city_cab_review' product.name product.id product.car_option %}" method="POST">
+            {% csrf_token %}
+            <div>
+                <div class ="form-group">
+                    <div class= "input rating">
+						<label>How do you rate your experience?</label>
+                     <div class ="rating-wrapper">
+                     <div class="stars">
+                     <input class="star star-5" id="star-5" type="radio" name="rate" value="5"/>
+                     <label class="star star-5" for="star-5"></label>
+                     <input class="star star-4" id="star-4" type="radio" name="rate" value="4"/>
+                     <label class="star star-4" for="star-4"></label>
+                     <input class="star star-3" id="star-3" type="radio" name="rate" value="3"/>
+                     <label class="star star-3" for="star-3"></label>
+                     <input class="star star-2" id="star-2" type="radio" name="rate" value="2"/>
+                     <label class="star star-2" for="star-2"></label>
+                     <input class="star star-1" id="star-1" type="radio" name="rate" value="1"/>
+                     <label class="star star-1" for="star-1"></label>
+
+                    </div>
+                    <br>
+                    <header class="section-heading">
+                        <h3>Write Your Review </h3>
+
+                        Review Title:
+                        <input type="text" class="form-control" name="subject">
+                        <br>
+                        Review:
+                        <textarea name="review" rows="4" class="form-control"></textarea>
+                        <br>
+
+                {% if user.is_authenticated %}
+                        <input type="submit" value="Submit Review" class="btn btn-primary">
+                {% else %}
+                <p>You must be logged in to post a review. <span><a href="{% url 'login' %}">Login now</a></span></p>
+                {% endif %}
+            </div>
+        </form>
+
+        <header class="section-heading">
+            <h3>Customer Reviews </h3>
+            {% for review in reviews %}
+              <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="card p-2">
+                <figure class="p-2 mb-0">
+                  <blockquote class="blockquote">
+                    <h3> {{review.subject}}</h3>
+                    <p> <strong><i>{{review.customer}} says:</strong></i> </p>
+                    <p> <i>"{{review.review}}"</i>  </p>
+                    <p> <strong>Rating: {{review.rate}}/5</strong> </p>
+                     </blockquote>
+                  <figcaption class="blockquote-footer mb-0 text-muted">
+                    <p> <i>Date added : {{review.date_added}}</i>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+              {% endfor %}
+            
+
+  <!-- Script -->
+  <script>
+ 
+    // Below code sets format to the
+    // datetimepicker having id as
+    // datetime
+    $('#datetime').datetimepicker({
+        format: 'YYYY-MM-DD hh:mm A'
+    });
+
+    $('#datetime2').datetimepicker({
+        format: 'YYYY-MM-DD HH:MM A'
+    });
+</script>
+
+
+{% endblock %}

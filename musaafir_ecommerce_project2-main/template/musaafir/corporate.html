@@ -1,0 +1,254 @@
+{% extends 'musaafir/main.html' %}
+{% load static %}
+{% block content %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    
+<main>
+  <div class="container py-4">
+    
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold text-center">Corporate Travel Management Made Easy For Women!</h1>
+        <h4 class="display-5 fs-4 text-center">Covers employee pick up and drop as well as other perks (night drops, weekend work travel).</h4>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Company Sign Up</h2>
+          <p>Use Musaafir For Managing Your Corporate Travel. Its Easy, Safe and Efficient</p>
+
+          <form action="{% url 'company_signup_form' %}" method="POST">
+            {% csrf_token %}
+            
+                
+            <div class="row g-2">
+              <div class="col-md">
+                   <div class="col-md">
+                      <div class="form-floating">
+                          <labelfor="floatingInputGrid"> Enter Your Name:</label>
+                          <input type="text"  name="name"  value="{{name}}" class="form-control">
+                               
+                              </div>
+<hr>
+                          </div>
+                                  <div class="row g-2">
+                                    <div class="col-md">
+                                         <div class="col-md">
+                                            <div class="form-floating">
+                                                <labelfor="floatingInputGrid"> Enter Company Name:</label>
+                                                <input type="text"  name="company_name" class="form-control">
+                                                     
+                                                    </div>
+      <hr>
+                                                </div>
+
+                  <div class="row g-2">
+                        <div class="col-md">
+                             <div class="col-md">
+                                <div class="form-floating">
+                                    <labelfor="floatingInputGrid"> Enter Phone Number:</label>
+                                    <input type="text"  name="phone_number" class="form-control">
+                                         
+                                        </div>
+<hr>
+                                    </div>
+
+                  
+                                        <div class="row g-2">
+                                            <div class="col-md">
+                                                <div class="col-md">
+                                                <div class="form-floating">
+                                                  <labelfor="floatingInputGrid"> City:</label>
+                                                  <select name="city" id="city" class="form-control"  style="height: 35px;">
+                                                    <option value="---">Select city name...</option>
+                                                    <option value="Navi Mumbai">Navi Mumbai</option>
+                                                    <option value="Mumbai">Mumbai</option>
+                                                    <option value="Pune">Pune</option>
+                                                  </select>
+                                                  <br>                                                         
+                                                </div>
+                                                <hr>
+                                            </div>             
+                    
+              <input type="submit" value="Submit Sign Up Form" class="btn btn-primary btn">
+              
+             
+                      </form>
+                      <div class="mt-4">
+                        <div class="d-flex justify-content-center links">
+                          Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
+                        </div>
+                      </div>
+    
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+  </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Send Us Your Queries</h2>
+          <p>we respond in less than 24 hrs!</p>
+
+          
+		
+
+          <form action="{% url 'contact_us_form' %}" method="POST">
+            {% csrf_token %}
+            <div>
+              <div>
+                <div>
+                  <hr>
+                  <div class="row g-2">
+                      <div class="col-md">
+                          <div class="col-md">
+                          <div class="form-floating">
+                            <labelfor="floatingInputGrid"> Your Name:</label>
+                            <input type="text" class="form-control" value="{{name}}" name="name">
+                           
+                          </div>
+                      </div>
+  
+                      <hr>
+  
+                      <div class="row g-2">
+                        <div class="col-md">
+                             <div class="col-md">
+                                <div class="form-floating">
+                                    <labelfor="floatingInputGrid"> Enter Official Email Id:</label>
+                                    <input type="text"  name="email" class="form-control">
+                                         
+                                        </div>
+  <hr>
+                                    </div>
+        
+
+                                        <div class="row g-2">
+                                          <div class="col-md">
+                                               <div class="col-md">
+                                                  <div class="form-floating">
+                                                      <labelfor="floatingInputGrid"> Enter Company Name:</label>
+                                                      <input type="text"  name="company_name" class="form-control">
+                                                           
+                                                          </div>
+            <hr>
+                                                      </div>
+
+                        <div class="row g-2">
+                              <div class="col-md">
+                                   <div class="col-md">
+                                      <div class="form-floating">
+                                          <labelfor="floatingInputGrid"> Enter Phone Number:</label>
+                                          <input type="text"  name="phone_number" class="form-control">
+                                               
+                                              </div>
+<hr>
+                                          </div>
+
+                        
+                                
+                                              <div class="row g-2">
+                                                  <div class="col-md">
+                                                      <div class="col-md">
+                                                      <div class="form-floating">
+                                                        <labelfor="floatingInputGrid"> City:</label>
+                                                        <select name="city" id="city" class="form-control"  style="height: 35px;">
+                                                          <option value="---">Select city name...</option>
+                                                          <option value="Navi Mumbai">Navi Mumbai</option>
+                                                          <option value="Mumbai">Mumbai</option>
+                                                          <option value="Pune">Pune</option>
+                                                        </select>
+                                                        <br>                                                         
+                                                      </div>
+                                                      <hr>
+                                                  </div>
+
+                                                  <div class="row g-2">
+                                                    <div class="col-md">
+                                                         <div class="col-md">
+                                                            <div class="form-floating">
+                                                                <labelfor="floatingInputGrid"> Enter Comments:</label>
+                                                                <input type="text"  rows="4" name="comments" class="form-control">
+                                                                     
+                                                                    </div>
+                      <hr>
+                                                                </div>
+                          
+
+                                           <input type="submit" value="Submit Query" class="btn btn-secondary">
+<br>
+<hr>
+        </form>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+   
+  </div>
+</main>
+
+
+    
+  </body>
+</html>
+
+
+{% endblock content %}

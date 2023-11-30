@@ -1,0 +1,143 @@
+{% extends 'musaafir/main.html' %}
+{% load static %}
+{% block content %}
+
+
+<h4 class="d-flex justify-content-between align-items-center mb-3">
+  <div class="container-fluid py-5">
+
+    <br>
+    <div class="row">
+      <div class="col-md-9">
+
+          <form action="{% url 'attach_car_form' %}" method="POST">
+              {% csrf_token %}
+              <div>
+                      <div class="col-lg-6" style="background-color:#f7b8a3;">
+                        <hr>
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="col-md">
+                                <div class="form-floating">
+                                  <labelfor="floatingInputGrid"> Name:</label>
+                                  <input type="text" class="form-control" name="name">
+                                 
+                                </div>
+                            </div>
+
+                            <br>
+              
+
+                          <div class="row g-2">
+                                <div class="col-md">
+                                     <div class="col-md">
+                                        <div class="form-floating">
+                                            <labelfor="floatingInputGrid"> Enter Phone Number:</label>
+                                            <input type="text"  name="phone_number" class="form-control">
+                                                 
+                                                </div>
+                                                <br>                                            </div>
+                    
+                                                <div class="row g-2">
+                                                    <div class="col-md">
+                                                        <div class="col-md">
+                                                        <div class="form-floating">
+                                                          <labelfor="floatingInputGrid"> City:</label>
+                                                          <select name="city" id="city" class="form-control"  style="height: 35px;">
+                                                            <option value="---">Select city name...</option>
+                                                            <option value="Navi Mumbai">Navi Mumbai</option>
+                                                            <option value="Mumbai">Mumbai</option>
+                                                            <option value="Pune">Pune</option>
+                                                          </select>
+                                                          <br>                                                         
+                                                        </div>
+                                                        <br>                                                    </div>
+
+                                                        <div class="row g-2">
+                                                            <div class="col-md">
+                                                                <div class="col-md">
+                                                                <div class="form-floating">
+                                                                  <labelfor="floatingInputGrid"> Vehicle Type:</label>
+                                                                  <select name="car_type" id="car_type" class="form-control"  style="height: 35px;">
+                                                                    <option value="---">Select vehicle type...</option>
+                                                                    <option value="Hatchbacks and sedans">Hatchbacks and sedans</option>
+                                                                    <option value="SUV">SUV</option>
+                                                                    <option value="Tempo travellers">Tempo travellers</option>
+                                                                  </select>
+                                                                  <br>                                                         
+                                                                </div>
+                                                                <br>                                             
+                                                                <input type="submit" value="Submit Application" class="w-100 btn btn-primary btn-lg">
+<br>
+<hr>
+          </form>
+
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h3 class="display-5 fw-bold text-center"><b><i> Documents required to start driving with Musaafir </i></b></h3>
+    <div class="row featurette">
+      <div class="container px-4 py-8">
+
+        <div class="p-5 mb-4 bg-light rounded-3">
+              
+              <div>
+            
+                <h3 class="display-5 fw-bold text-center"> Valid Commercial Driver's License (Yellow Badge)
+              <br>
+              <br>
+              
+              PAN Card
+              <br>
+              <br>
+              Aadhaar Card
+              <br>
+              <br>
+              Current & Permanent Address Proofs
+              <br>
+              <br>
+              Four References (With Addresses & Phone Numbers)
+              <br>
+              <br>
+              Bank Details (Passbook OR Cancelled Cheque)              </div>
+            </div>
+             
+            </div>
+    
+      
+    
+      </section>
+    
+        </div>
+      </div>
+  </div>
+</div>
+           
+            </div>
+          </div>
+
+
+{% endblock content %}

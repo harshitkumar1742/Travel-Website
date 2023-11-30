@@ -1,0 +1,161 @@
+{% extends 'musaafir/main.html' %}
+{% load static %}
+{% block content %}
+
+<html lang="en">
+  
+  
+  <main>
+  
+    <section class="py-5 text-center container" style="background-color:#f7eca3;">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Musaafir hoon, yaaro!</h1>
+          <br>
+          <p class="lead text-muted">Your safety is of utmost importance to us. Travel in our cabs with our female drivers!</p>
+          <p>
+            <hr>
+            <br>
+            <h4 class="fw-light"> <i><b>Select Trip Type</b></i></h4>
+
+          </p>
+        </div>
+      </div>
+    </section>
+
+      
+<section class="py-5 text-center container" style="background-color:#f7eca3;">
+    <div class="row row-cols row-cols row-cols">
+
+    <div class="col">
+        <div class="card shadow-sm">
+          <img src="{% static 'img/cab.jpg' %}" alt="female driver city commute" style="width:100%">
+          <div class="card-body">
+              <h3 class="fw-light">City Commute</h3>
+              <h5 class="lead text-muted">Travel within your city</h5>
+
+              <div class="btn-group">
+                  <div class="col-lg-0 col-md-0 mx-auto">
+                      <a href="{% url 'citycab' %}" class="btn btn-secondary my-2 stretched-link">Book Now</a>                        
+                    </div>
+          
+              </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+
+            <div class="card shadow-sm">
+              <img src="{% static 'img/rental.jpg' %}" alt="outstation" style="width:100%">
+              <div class="card-body">
+                  <h3 class="fw-light">Rentals</h3>
+                  <h5 class="lead text-muted">Rent a car (hourly package)</h5>
+
+             <div class="btn-group">
+                      <div class="col-lg-0 col-md-0 mx-auto">
+                    <a href="{% url 'citycab' %}" class="btn btn-secondary my-2 stretched-link">Book Now</a>
+                  </div>
+              </div>
+                </div>
+                </div>
+              </div>
+            
+
+            <div class="col">
+
+              <div class="card shadow-sm">
+                <img src="{% static 'img/outstation1.jpg' %}" alt="outstation" style="width:100%">
+    
+                <div class="card-body">
+                    <h3 class="fw-light">Outstation</h3>
+                    <h5 class="lead text-muted">Travel outside your city</h5>
+
+                    <div class="btn-group">
+                        <div class="col-lg-0 col-md-0 mx-auto">
+                            <a href="{% url 'citycab' %}" class="btn btn-secondary my-2 stretched-link">Book Now</a>                        </div>
+                
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+
+        </section>
+
+   
+
+
+<section class="py-5 text-center container" style="background-color:#f7eca3;">
+  <section class="py-5 text-center container">
+
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light"><b>Corporate Musaafir</b></h1>Corporate travel management for women made easy! Covers employee pick up and drop as well as other perks (night drops, weekend work travel).</p>
+      <p>
+        <a href="{% url 'corporate' %}" class="btn btn-primary my-2">Know More...</a>
+      
+      </p>
+    </div>
+    
+  </div>
+</section>
+
+
+
+<div class="row featurette">
+  <div class="container px-4 py-8">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Still curious? we have your back. <span class="text-muted">some FAQs. </span></h1>
+
+    
+  
+      <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-1 g-4 py-5">
+          <div>
+            <h4 class="fw-bold mb-0"><strong>How can I contact Musaafir?</strong>
+          </h4>
+           Reach out to us on our email id musaafir.corporate@gmail.com or fill up this<a href="{% url 'corporate' %}" class="ml-2"> Send Us Your Queries form</a> </p>
+          </div>
+        </div>
+          <div>
+            <h4 class="fw-bold mb-0"><strong>When will I get driver and vehicle details?</strong></h4>
+            <p>Vehicle and driver details will be shared 30 minutes before the start of your journey via your registered email id            </p>
+          </div>
+        </div>
+          <div>
+            <h4 class="fw-bold mb-0"><strong>What if I cover extra hours or kms in my hired Rental?</strong></h4>
+            <p>Extra hours and extra kms, the amount can be paid to Musaafir online or driver in cash.</p>
+          </div>
+        </div>
+        
+        </div>
+       
+  </div>
+  
+
+  </section>
+
+    </div>
+  </div>
+
+  </main>
+
+  
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+  </footer>
+  
+  
+      <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+        
+    </body>
+  </html>
+{% endblock content %}

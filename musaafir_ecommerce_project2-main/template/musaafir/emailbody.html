@@ -1,0 +1,23 @@
+<html>
+<body>
+
+                   <b> Hello {{data.name}},</b> 
+                    <div> 
+                        <div>
+                    You have been registered on Corporate Musaafir! Your account has been registered using the following details:
+                    <div>
+                    Username: {{data.name}}
+                    <div>
+                    Email id: {{data.email}}
+                    <div>
+                    Company Name: {{data.company_name}}. 
+                    <div>
+                    You have been allocated a budget of Rs. {{data.budget}}
+                    <div>
+
+                    To proceed, create a password associated with the above credentials here: 
+                    <div>
+
+                    <a href=" http://127.0.0.1:8000{% url 'create_password' %}" class="btn btn-secondary"> Register  password </a>
+</body>
+</html>
